@@ -25,11 +25,11 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew clean build
     
-    - name: List build artifacts (debugging)
+    - name: List build artifacts
       run: |
-        echo "Contents of build directory:"
-        find build -name "*.jar" -type f || echo "No JAR files found in build directory"
-        ls -la build/libs/ || echo "No build/libs directory found"
+        echo "Build completed. JAR files created:"
+        find build -name "*.jar" -type f
+        ls -la build/libs/ || echo "No build/libs directory"
     
     - name: Build and Push Docker Image
       uses: mr-smithers-excellent/docker-build-push@v5
